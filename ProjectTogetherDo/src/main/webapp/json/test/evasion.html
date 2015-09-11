@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EVASION</title>
+<meta name="keywords" content="EVASION" />
+<meta name="description" content="EVASION" />
+
+<link rel="shortcut icon" href="/images/evasion.ico" />
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<!-- google 2013-07-18 -->
+<script type="text/javascript">
+var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-28947218-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();
+</script>
+<!-- google End -->
+<!-- AceCounter V.72.2013010701 -->
+<script language='javascript'>
+if(typeof _GUL == 'undefined'){var _GUL = 'gtp1.acecounter.com';var _GPT='8080'; var _AIMG = new Image(); var _bn=navigator.appName; var _PR = location.protocol=="https:"?"https://"+_GUL:"http://"+_GUL+":"+_GPT;if( _bn.indexOf("Netscape") > -1 || _bn=="Mozilla"){ setTimeout("_AIMG.src = _PR+'/?cookie';",1); } else{ _AIMG.src = _PR+'/?cookie'; };document.writeln("<scr"+"ipt language='javascript' src='/acecounter_ecom/acecounter_V70.js'></scr"+"ipt>");}
+</script>
+<noscript><img src='http://gtp1.acecounter.com:8080/?uid=AM6A38097854060&je=n&' border='0' width='0' height='0' /></noscript>
+<!-- AceCounter End --> 
+<script language="javascript">
+window.fbAsyncInit = function() {FB.init({appId:'228468577329462',status:true,cookie:true,xfbml:true});};
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=228468577329462";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+function facebooklogin() {
+FB.login(function(response) {
+if (response.authResponse) {
+   parent.location.replace('./bbs/fbLoginProcess.php?url=');  // connected
+} else {
+	return false;
+}
+},{scope: 'public_profile,email'});}
+</script>
+<script language="javascript">
+function eLogin(){
+    
+    var form = document.form1;
+	
+    if (form.mb_id.value=='이메일') {
+        alert("회원아이디를 입력하십시오.");
+        form.mb_id.focus();
+		form.mb_id.select(); 
+        return false;
+    }
+    if (!form.mb_id.value) {
+        alert("회원아이디를 입력하십시오.");
+        form.mb_id.focus();
+		form.mb_id.select(); 
+        return false;
+    }
+    if (form.mb_password.value=='비밀번호  ') {
+        alert("패스워드를 4자이상 12자까지 입력하십시오.");
+        form.mb_password.focus();
+        return false;
+    }
+    if (!form.mb_password.value) {
+        alert("패스워드를 4자이상 12자까지 입력하십시오.");
+        f.mb_password.focus();
+        return false;
+    }
+   form.target = "_parent"; 
+   
+    form.action = 'https://www.evasion.co.kr/bbs/login_checkn.php';
+   
+   form.submit();
+}
+</script>
+</head>
+
+
+<!--STYLE-->
+<link rel="stylesheet" href="/css/landingmain.css?123" />
+<link rel="stylesheet" href="/css/superslides.css" />
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+<script>
+$(function() {
+	$('#slides').superslides({
+        hashchange: false 
+	});
+});
+
+$(document).ready(function(){
+  $(".login").click(function(){
+    $(".login_box").fadeIn(200);
+  });
+  
+  $(".login").mouseover(function(){   
+    var lDisp = $(".login_box").css('display');
+    if(lDisp == 'none'){
+        $(".login_box").fadeToggle(200);
+    }
+  });
+  
+  $("#slides, #registerwrap, .label").click(function(){
+    var lDisp = $(".login_box").css('display');
+    if(lDisp == 'block'){
+        $(".login_box").fadeToggle(200);
+    } 
+  });
+});
+
+
+$(document).ready(function(){
+    
+  var TextSize = $(".LD_CHAR").size();
+  var LDCNT = 1;
+
+function chText(no){
+    
+    var tmp = no % 3;
+    
+    for(j=0;j<TextSize;j++){
+        if(j == (tmp)){
+            $(".LD_CHAR").eq(j).fadeIn();
+        }else{
+            $(".LD_CHAR").eq(j).fadeOut();
+        }
+    }
+
+}
+    setInterval(function(){chText(LDCNT);LDCNT++;},6000);
+});
+
+
+</script>
+
+<div id="container" >
+	<div id="contents" >
+
+		<div id="header">
+			<div class="header_wrap">
+				<a href="#"><img src="/data/hotel/landing_bg/landing_header.jpg" style="margin-top:20px; display:inline-block;" alt="landing_header" /></a>
+
+				<div class="member" id="member1">
+					<form name="form1" id="form1" method="post" autocomplete="off" style="margin:0px;" target="_parent">
+					<input type="hidden" name="url" value="" />
+					<span style="color:#a2a2a2; font-size:11px; font-family:'NanumGothicWeb', '굴림', Gulim, sans-serif;">회원이신가요 ?</span>
+					<a href="#" class="login">LOGIN</a>
+					<div class="login_box" style="height:170px;">
+						<div class="fb_login" onclick="facebooklogin();" style="cursor:pointer;cursor:hand;">페이스북 로그인</div>
+						<img src="/data/hotel/landing_bg/or.jpg">
+						<span class="inputgroup">
+						<input class="input" type="email" name="mb_id" id="mb_id" value="" placeholder="이메일" style="margin-bottom:5px;" onkeydown="javascript:if(event.keyCode == 13){eLogin();}" />
+						<input class="input" type="password" name="mb_password" id="mb_password" value=""  placeholder="패스워드" onkeydown="javascript:if(event.keyCode == 13){eLogin();}" />
+						</span>
+						<input type=button  onclick="eLogin()" class="connect"  value='로그인' style="font-family: 'GillSans', 'NanumGothicWeb', '굴림', Gulim, sans-serif;border: 0;border-radius:0;-webkit-appearance: none;  -webkit-border-radius: 0;">
+						<div style="margin-top:10px; color:#666666; font-size:12px;">
+							<span><input style="margin:5px 0 0 0;" type="checkbox" id="auto_login" name="auto_login" value="1" onclick="if (this.checked) { if (confirm('자동로그인을 사용하시면 6개월간 아이디와 패스워드를 입력하실 필요가 없습니다.\n\n\공공장소에서는 개인정보가 유출될 수 있으니 사용을 자제하여 주십시오.\n\n자동로그인을 사용하시겠습니까?')) { this.checked = true; } else { this.checked = false; } }" /> &nbsp;로그인 상태 유지</span> 
+							<span style="margin-left:60px; color:#666666;"><a href="/bbs/id_lost.php" style="color:#666666;">아이디</a>  &nbsp;|&nbsp;  <a href="/bbs/password_lost.php" style="color:#666666;">비밀번호 찾기</a></span>
+						</div>
+<!-- 
+						<div style="margin-top:10px; color:#666666; font-size:12px;">
+							<span style="margin-left:183px; color:#666666;"><a href="/bbs/id_lost.php" style="color:#666666;">아이디</a>  &nbsp;|&nbsp;  <a href="/bbs/password_lost.php" style="color:#666666;">비밀번호 찾기</a></span>
+						</div>
+ -->
+					</div>
+					</form>
+				</div >
+				<div class="label">
+					<img class="LD_CHAR" src="/data/hotel/landing_bg/t01.png" style="display:block;" />
+					<img class="LD_CHAR" src="/data/hotel/landing_bg/t02.png" style="display:none;" />
+					<img class="LD_CHAR" src="/data/hotel/landing_bg/t03.png" style="display:none;" />
+				</div>
+			</div>
+		</div>
+
+		<!-- SLIDER begin -->
+		<div id="slides" style="height:120%;">
+			<div class="slides-container">
+								<img src="/data/hotel/main/IR140402_0004.jpg" width="1920" height="1080" />
+								<img src="/data/hotel/main/IR140402_0005.jpg" width="1920" height="1080" />
+								<img src="/data/hotel/main/IR140402_0006.jpg" width="1920" height="1080" />
+							</div>
+		</div>
+		<!-- SLIDER end -->
+
+		<!-- INFO public announcement 
+		<div id="draggable" style="display:block;position:absolute; z-index:99999; left:0.5%;top:335px;" >
+			<div style="width:600px; height:578px; z-index:99999; border:0px solid #000; margin:0; background-color:#FFF; padding:0;">
+				<ul style="padding:0px; margin:0px;">
+					<img src="/img/popup/popup20141211.gif" border="0" alt="사과문 팝업" />
+				</ul>
+			</div>
+		</div>
+		INFO public announcement -->
+
+
+
+		<div id="footer" style="bottom: -250px;z-index:999;">
+			<div id="registerwrap">
+				<!-- EVENT POPUP begin -->
+								<span id="eventbox_1" style="display:block;"><a href="http://www.evasion.co.kr/event/invitefriend/intro.html" target="_blank"><img src="http://i.evasion.co.kr/data/hotel/main/MP150901_0011.png" /></a></span>     
+								<!-- EVENT POPUP end -->
+				
+				<div id="registerbox">
+					<div class="title">아직 <span style="color:#33cccc;">에바종 회원</span>이<br /> 아니신가요?</div>
+					<div class="subtitle">회원 가입은 무료입니다<br /> 에바종 클럽 회원이 되어 다양한 혜택을 누려보세요.</div>
+					<a href="/bbs/join_form.html?"><div class="free_register">무료 회원가입</div></a>
+					<div class="fb_register" onclick="facebooklogin();" style="cursor:pointer;cursor:hand;">페이스북 계정으로 회원가입</div>
+				</div>
+			</div>
+			<div id="eva_club" style="bottom:40px;">
+				<div class="eva_club_wrap" >
+					<span><img src="/data/hotel/landing_bg/evasion_club.png" style="vertical-align:middle;" /></span> 
+					<span style="vertical-align:middle; line-height:40px;">만의 특별한 혜택</span>
+					<span style="margin-left:40px; line-height:40px;">에바종에 회원 가입하고 구매 금액의 최대 5% 적립, 기념일 할인 쿠폰, 시크릿 선물 등 다양한 혜택을 누려보세요!</span>
+				</div>
+			</div>
+
+			<div class="footer_wrap" style="position:relative; bottom:15px;">
+				<table border="0">
+				<tr>
+				<th class="f_evasion">
+					<div><img src="/data/hotel/landing_bg/f_evasion.png" /></div>
+					<div style="margin-top:10px;"><img src="/data/hotel/landing_bg/f_line.jpg" /></div>
+					<table cellpadding="0" cellspacing="0">
+					<tr>
+					<th width="160" height="26" style="vertical-align:bottom; font-weight:normal; text-align:left;"><img src="/data/hotel/landing_bg/f_icon1.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/evasion.php" style="color:#cccccc;"><span>에바종 소개</span></th>
+					<td width="160" height="26" style="vertical-align:bottom; text-align:left;"><img src="/data/hotel/landing_bg/f_icon2.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/bbs/board.php?bo_table=media" style="color:#cccccc;"><span>미디어</span></a></td>
+					<td width="160" height="26" style="vertical-align:bottom; text-align:left;"><img src="/data/hotel/landing_bg/f_icon3.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/bbs/board.php?bo_table=notice" style="color:#cccccc;"><span>공지 사항</span></a></td>
+					<td width="160" height="26" style="vertical-align:bottom; text-align:left;"><img src="/data/hotel/landing_bg/f_icon4.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/bbs/board.php?bo_table=faq#" style="color:#cccccc;"><span>자주 묻는 질문</span></a></td>
+					</tr>
+					<tr>
+					<td width="160" height="26" style="vertical-align:bottom text-align:left; font-weight:normal; padding-top:12px;"><img src="/data/hotel/landing_bg/f_icon5.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/legal.php" style="color:#cccccc;"><span>이용 약관</span></a></td>
+					<td width="160" height="26" style="vertical-align:bottom text-align:left; padding-top:12px;"><img src="/data/hotel/landing_bg/f_icon6.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/service.php" style="color:#cccccc;"><span>개인정보취급방침</span></a></td>
+					<td width="160" height="26" style="vertical-align:bottom text-align:left; padding-top:12px;"><img src="/data/hotel/landing_bg/f_icon7.jpg" style="vertical-align:bottom; margin-right:10px;" /><a href="http://www.evasion.co.kr/bbs/board.php?bo_table=recruit" style="color:#cccccc;"><span>인재 채용</span></a></td>
+					</tr>
+					</table>
+					<div style="margin-top:12px;"><img src="/data/hotel/landing_bg/f_line3.jpg" /></div>
+					<div class="identification" style="margin-top:16px;"><span style="color:#ffffff;">(주)본보야지</span>&nbsp;&nbsp;&nbsp;<span style="color:#999999;">대표자:</span> 에드몽 위그 제라르&nbsp;&nbsp;&nbsp;<span style="color:#999999;">|</span>&nbsp;&nbsp;&nbsp;2013-서울 중구-1277&nbsp;&nbsp;&nbsp;<span style="color:#999999;">|</span>&nbsp;&nbsp;&nbsp;211-88-68189</div>
+				</th>
+				<td class="f_contact">
+					<div style="margin-top:2px;"><img src="/data/hotel/landing_bg/f_contact.png" /></div>
+					<div style="margin-top:10px;"><img src="/data/hotel/landing_bg/f_line2.jpg" /></div>
+					<div class="f_info">
+						<span style="color:#999999;">전화:</span>
+						<span style="color:#ffffff;">1577 - 9056</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+						<span style="color:#999999;">이메일:</span> <a href="mailto:info@evasion.co.kr" target="_blank" style="color:#cccccc;">info@evasion.co.kr</a> <br />
+						<span style="color:#999999;">광고/제휴 문의:</span> <a href="mailto:ad@evasion.co.kr" target="_blank" style="color:#cccccc;">ad@evasion.co.kr</a> <br />
+						<span style="color:#999999;">주소:</span> 서울특별시 중구 정동길 33 신아기념관 304호
+					</div>
+					<div><img src="/data/hotel/landing_bg/f_line4.jpg" style="vertical-align:bottom; margin-top:10px;" /></div>
+					<span><img src="/data/hotel/landing_bg/f_findus.png" style="vertical-align:bottom; padding-bottom:6px;" /></span>
+					<a href="http://blog.naver.com/evasionkorea" target="_blank"><img src="/data/hotel/landing_bg/f_blog.png" style="vertical-align:bottom; margin-left:15px; padding-bottom:3px;" /></a>
+					<a href="http://www.facebook.com/evasionkr" target="_blank"><img src="/data/hotel/landing_bg/f_fb.png" style="vertical-align:bottom; margin-left:20px; padding-top:12px;" /></a>
+					<a href="http://twitter.com/evasionkr" target="_blank"><img src="/data/hotel/landing_bg/f_twitter.png" style="vertical-align:bottom; margin-left:20px; padding-bottom:2px;" /></a>
+				</td>
+				</tr>
+				</table>
+				<div style="margin-left:3px; margin-top:10px;"><img src="/data/hotel/landing_bg/f_line5.jpg" /></div>
+				<div style="color:#999999; font-size:11px; text-transform:uppercase; margin-top:12px; margin-left:3px;">COPYRIGHT © 2011 - 2014 BonVoyage Inc. All rights reserved.</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script>
+
+</script>
+
+</html>
