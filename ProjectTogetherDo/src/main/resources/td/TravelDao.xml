@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="td.dao.TravelDao">
+  <resultMap type="Travel" id="TravelMap">
+    <id     column="tno"      property="no" />
+    <result column="att_file01" property="attachFile01" />
+    <result column="att_file02" property="attachFile02" />
+    <result column="att_file03" property="attachFile03" />
+  </resultMap>
+  
+  <select id="list" resultMap="TravelMap">
+    SELECT tno, att_file01, att_file02, att_file03
+    FROM travel
+    ORDER BY tno asc
+  </select>
+  
+  <select id="countAll" resultType="int">
+    SELECT count(*)
+    FROM travel
+  </select>
+  
+  <insert id="insert" parameterType="Travel">
+    INSERT INTO travel(att_file01, att_file02, att_file03)
+    values(#{attachFile01}, #{attachFile02}, #{attachFile03})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+    DELETE FROM travel WHERE tno=#{value}
+  </delete>
+
+  <update id="update" parameterType="Travel">
+    UPDATE travel SET 
+      att_file01=#{attachFile01},  
+      att_file02=#{attachFile02}, 
+      att_file03=#{attachFile03}  
+    WHERE tno=#{no}      
+  </update>
+  
+  <select id="get" parameterType="int" resultMap="TravelMap">
+    SELECT tno, att_file01, att_file02, att_file03
+    FROM travel
+    WHERE tno=#{value}
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

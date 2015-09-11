@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 	
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<link rel="shortcut icon" href="../favicon.ico">
+		
+		<!-- 기본 정의 (defaultGrid 와 중복 되는 부분 고려)-->
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		
+		<!-- 게시물 목록 관련 css/js -->
+		<link rel="stylesheet" type="text/css" href="css/grid.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/defaultGrid.css" />
+		
+		<!-- 지도 관련  -->
+		<link rel="stylesheet" type="text/css" href="css/map.css"></link>
+	
+		<!-- header 메뉴 부분 css/js -->
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/cbpTooltipMenu.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		
+		<!-- 무한 스크롤 관련 -->
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<style type="text/css">
+.koreaMap {
+overflow: hidden;
+}
+</style>
+		
+		<title>게시물 목록</title>
+	</head>
+	<body>
+		<header class="clearfix">
+			<span>BITCAMP <span class="bp-icon bp-icon-about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
+			<h1>To.dot</h1>
+		</header>	
+		<div class="filler-above">
+			<ul id="cbp-tm-menu" class="cbp-tm-menu">
+				<li>
+					<a href="#">여행기</a>
+				</li>
+				<li>
+					<a href="#">자유여행</a>
+					<ul class="cbp-tm-submenu">
+						<li><a href="#" class="cbp-tm-icon-archive">Sorrel desert</a></li>
+						<li><a href="#" class="cbp-tm-icon-cog">Raisin kakadu</a></li>
+						<li><a href="#" class="cbp-tm-icon-location">Plum salsify</a></li>
+						<li><a href="#" class="cbp-tm-icon-users">Bok choy celtuce</a></li>
+						<li><a href="#" class="cbp-tm-icon-earth">Onion endive</a></li>
+						<li><a href="#" class="cbp-tm-icon-location">Bitterleaf</a></li>
+						<li><a href="#" class="cbp-tm-icon-mobile">Sea lettuce</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">추천여행</a>
+					<ul class="cbp-tm-submenu">
+						<li><a href="#" class="cbp-tm-icon-archive">Brussels sprout</a></li>
+						<li><a href="#" class="cbp-tm-icon-cog">Kakadu lemon</a></li>
+						<li><a href="#" class="cbp-tm-icon-link">Juice green</a></li>
+						<li><a href="#" class="cbp-tm-icon-users">Wine fruit</a></li>
+						<li><a href="#" class="cbp-tm-icon-earth">Garlic mint</a></li>
+						<li><a href="#" class="cbp-tm-icon-location">Zucchini garnish</a></li>
+						<li><a href="#" class="cbp-tm-icon-mobile">Sea lettuce</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">기타</a>
+					<ul class="cbp-tm-submenu">
+						<li><a href="#" class="cbp-tm-icon-screen">Sorrel desert</a></li>
+						<li><a href="#" class="cbp-tm-icon-mail">Raisin kakadu</a></li>
+						<li><a href="#" class="cbp-tm-icon-contract">Plum salsify</a></li>
+						<li><a href="#" class="cbp-tm-icon-pencil">Bok choy celtuce</a></li>
+						<li><a href="#" class="cbp-tm-icon-article">Onion endive</a></li>
+						<li><a href="#" class="cbp-tm-icon-clock">Bitterleaf</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">로그인</a>
+					<ul class="cbp-tm-submenu">
+						<li><a href="#" class="cbp-tm-icon-screen">Sorrel desert</a></li>
+						<li><a href="#" class="cbp-tm-icon-mail">Raisin kakadu</a></li>
+						<li><a href="#" class="cbp-tm-icon-contract">Plum salsify</a></li>
+						<li><a href="#" class="cbp-tm-icon-pencil">Bok choy celtuce</a></li>
+						<li><a href="#" class="cbp-tm-icon-article">Onion endive</a></li>
+						<li><a href="#" class="cbp-tm-icon-clock">Bitterleaf</a></li>
+					</ul>
+				</li>
+			</ul>	
+		</div><!-- filler-above end -->
+			
+		<a class='t1' href="#">크게</a>
+		<a class='t2' href="#">작게</a>
+		<div id="pop"></div>
+			
+		<div class="content">
+			<div class="koreaMap">
+				<img id="kMap" src="images/map_sido0.gif" usemap="#kMap" width="290" height="410" alt="" border="0" />
+	  		<map name="kMap" class="mapControll">
+       		<area class="seoul" shape="poly" coords="101,77,82,79,73,91,89,102,106,99,109,86" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido1.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+				  <area class="incheon" shape="poly" coords="49,68,51,87,61,103,76,99" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido2.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+				  <area class="gangwon-do" shape="poly" coords="189,3,103,21,106,36,141,52,131,71,156,108,204,123,257,118" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido3.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+				  <area class="chungbuk" shape="poly" coords="167,113,139,114,115,135,117,165,132,183,138,212,158,203,149,155,197,127" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido4.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="chungnam" shape="poly" coords="110,141,45,134,25,148,38,176,73,209,89,205,108,212" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido5.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="gico" shape="poly" coords="132,54,96,38,66,62,75,80,107,78,112,96,97,103,71,116,105,135,134,111,140,94" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido6.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="daejeon" shape="poly" coords="116,170,113,199,123,204,133,196,129,183" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido7.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="gyeongbuk" shape="poly" coords="258,121,208,126,196,138,165,147,159,192,158,208,157,232,171,241,187,242,200,205,221,218,211,244,243,239,272,237" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido8.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="daegu" shape="poly" coords="202,211,195,238,206,242,214,219" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido9.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="jeonbuk" shape="poly" coords="147,218,86,212,68,219,55,244,54,262,74,257,92,268,119,265,122,237" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido10.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="gyeongnam" shape="poly" coords="148,232,128,237,128,272,150,301,184,305,203,288,210,267,232,260,174,243" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido11.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="ulsan" shape="poly" coords="270,241,241,242,235,252,244,268" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido12.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="busan" shape="poly" coords="235,261,218,271,214,287,228,292,249,277" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido13.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="gwangju" shape="poly" coords="67,282,91,283,100,299,76,299" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido14.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="jeonnam" shape="poly" coords="59,299,77,265,56,268,34,276,41,326,55,349,74,336,86,336,118,338,150,307,132,281,101,267,106,303" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido15.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>
+       		<area class="jeju" shape="poly" coords="76,373,31,388,37,402,64,403,86,391" href="#" 
+       			onMouseOver="if(document.images) document.getElementById('kMap').src= 'images/map_sido16.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'images/map_sido0.gif';"/>	
+				</map>	
+  		</div><!-- koreaMap end -->
+	    		
+			<div id="reLocate"></div> <!-- 아래의 지역별 속성값을 제거한 뒤 다시 되살리는 div -->	    		
+   		<div class="totalList" id="scroll">
+   			<ul class="grid cs-style-3 test">
+					<li>
+						<figure>
+							<img class ='detailGo' src="list_images/4.png" alt="img04">
+							<figcaption>
+								<h3>Settings</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/1.png" alt="img01">
+							<figcaption>
+								<h3>Camera</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/2.png" alt="img02">
+							<figcaption>
+								<h3>Music</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/5.png" alt="img05">
+							<figcaption>
+								<h3>Safari</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/3.png" alt="img03">
+							<figcaption>
+								<h3>Phone</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/6.png" alt="img06">
+							<figcaption>
+								<h3>Game Center</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/4.png" alt="img04">
+							<figcaption>
+								<h3>Settings</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/1.png" alt="img01">
+							<figcaption>
+								<h3>Camera</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<img src="list_images/2.png" alt="img02">
+							<figcaption>
+								<h3>Music</h3>
+								<span>Jacob Cummings</span>
+								<a href="#">Take a look</a>
+							</figcaption>
+						</figure>
+					</li>
+				</ul>
+   		</div><!-- totalList end -->
+		</div><!-- content end -->
+		
+		<script>
+	   $(document).ready(function() {
+      $(window).scroll(function() {
+         var scrollHeight = $(window).scrollTop() + $(window).height();
+         var documentHeight = $(document).height();
+         if (scrollHeight == documentHeight) {
+         }
+      	});
+   		});
+	
+	   $(document).ready(function() {
+		      for(var i = 0 ; i < 15; i++) {
+		           $('ul.test').append('<li class="test"><figure><img src="list_images/2.png" alt="img02" ><figcaption><h3>Settings</h3><span>추천수</span> <a href="">여행기 보기</a></figcaption></figure></li>');  
+		           }   
+		   });
+		</script>
+		<script>
+			var menu = new cbpTooltipMenu( document.getElementById( 'cbp-tm-menu' ) );
+		</script>
+	
+    <script src='./js/mapControll.js'></script> <!-- 09.11 김지수 // 지도데이터 -->
+	
+	</body>
+</html>

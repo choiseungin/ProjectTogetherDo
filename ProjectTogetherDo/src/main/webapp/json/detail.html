@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시물 상세보기</title>
+
+<!-- 기본 정의 (defaultGrid 와 중복 되는 부분 고려)-->
+<link rel="stylesheet" type="text/css" href="./css/default.css" />
+<link rel="stylesheet" type="text/css" href="./css/defaultGrid.css" />
+
+<!-- 지도 관련  -->
+<link rel="stylesheet" type="text/css" href="./css/map.css" />
+
+<!-- 게시물 상세보기 관련 css/js -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/kGallery-full.min.js"></script>
+<link rel="stylesheet" href="css/kGallery.css" />
+
+<!-- header 메뉴 부분 css/js -->
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script src="js/cbpTooltipMenu.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+
+</head>
+<body>
+  <header class="clearfix">
+      <span>BITCAMP <span class="bp-icon bp-icon-about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
+      <h1>To.dot</h1>
+  </header>   
+  <div class="filler-above">
+    <ul id="cbp-tm-menu" class="cbp-tm-menu">
+      <li>
+          <a href="#">여행기</a>
+      </li>
+      <li>
+        <a href="#">자유여행</a>
+		    <ul class="cbp-tm-submenu">
+		       <li><a href="#" class="cbp-tm-icon-archive">Sorrel desert</a></li>
+		       <li><a href="#" class="cbp-tm-icon-cog">Raisin kakadu</a></li>
+		       <li><a href="#" class="cbp-tm-icon-location">Plum salsify</a></li>
+		       <li><a href="#" class="cbp-tm-icon-users">Bok choy celtuce</a></li>
+		       <li><a href="#" class="cbp-tm-icon-earth">Onion endive</a></li>
+		       <li><a href="#" class="cbp-tm-icon-location">Bitterleaf</a></li>
+		       <li><a href="#" class="cbp-tm-icon-mobile">Sea lettuce</a></li>
+		    </ul>
+      </li>
+      <li>
+        <a href="#">추천여행</a>
+        <ul class="cbp-tm-submenu">
+          <li><a href="#" class="cbp-tm-icon-archive">Brussels sprout</a></li>
+          <li><a href="#" class="cbp-tm-icon-cog">Kakadu lemon</a></li>
+          <li><a href="#" class="cbp-tm-icon-link">Juice green</a></li>
+          <li><a href="#" class="cbp-tm-icon-users">Wine fruit</a></li>
+          <li><a href="#" class="cbp-tm-icon-earth">Garlic mint</a></li>
+          <li><a href="#" class="cbp-tm-icon-location">Zucchini garnish</a></li>
+          <li><a href="#" class="cbp-tm-icon-mobile">Sea lettuce</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">기타</a>
+        <ul class="cbp-tm-submenu">
+          <li><a href="#" class="cbp-tm-icon-screen">Sorrel desert</a></li>
+          <li><a href="#" class="cbp-tm-icon-mail">Raisin kakadu</a></li>
+          <li><a href="#" class="cbp-tm-icon-contract">Plum salsify</a></li>
+          <li><a href="#" class="cbp-tm-icon-pencil">Bok choy celtuce</a></li>
+          <li><a href="#" class="cbp-tm-icon-article">Onion endive</a></li>
+          <li><a href="#" class="cbp-tm-icon-clock">Bitterleaf</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">로그인</a>
+        <ul class="cbp-tm-submenu">
+          <li><a href="#" class="cbp-tm-icon-screen">Sorrel desert</a></li>
+          <li><a href="#" class="cbp-tm-icon-mail">Raisin kakadu</a></li>
+          <li><a href="#" class="cbp-tm-icon-contract">Plum salsify</a></li>
+          <li><a href="#" class="cbp-tm-icon-pencil">Bok choy celtuce</a></li>
+          <li><a href="#" class="cbp-tm-icon-article">Onion endive</a></li>
+          <li><a href="#" class="cbp-tm-icon-clock">Bitterleaf</a></li>
+        </ul>
+      </li>
+  	</ul>   
+  </div><!-- filler-above end -->
+
+	<div class="content">
+		<div class="koreaMap">
+			<img id="kMap" src="img/map/map_sido0.gif" usemap="#kMap" width="290" height="410" alt="" border="0" />
+    	<map name="kMap" >
+       <area class="seoul" shape="" coords="101,77,82,79,73,91,89,102,106,99,109,86" href="#" 
+        onMouseOver="if(document.images) document.getElementById('kMap').src= 'img/map/map_sido1.gif';" onMouseOut="if(document.images) document.getElementById('kMap').src= 'img/map/map_sido0.gif';"/>
+    	</map>
+		</div><!-- koreaMap end -->
+		<div id="gallery-wrapper" class="detailList"></div>
+	</div><!-- content end -->
+	
+	<!--  
+		<button type="button" id="dataBtn">List에서 데이터받기</button><br>
+		<button type="submit" id="start">출발지</button>
+		<button type="submit" id="end">도착지</button>
+		<button type="submit" id="stopover01">데이터없음</button>
+		<button type="submit" id="stopover02">데이터없음</button>
+		<button type="submit" id="stopover03">데이터없음</button>
+	-->
+
+<script>
+    var menu = new cbpTooltipMenu( document.getElementById( 'cbp-tm-menu' ) );
+</script>
+
+<script>
+$(document).ready(function() {
+    gallery = kGallery({
+        wrapper: '#gallery-wrapper',
+        dataSource: 'list_images/gallery.json',
+        startItem: 0,
+        thumbnailPickerOptions: {
+            itemsOnPage: 5
+        }
+    });
+});
+</script>
+
+</body>
+</html>

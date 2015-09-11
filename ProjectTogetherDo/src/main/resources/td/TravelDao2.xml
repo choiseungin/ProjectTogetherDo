@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="td.dao.TravelDao2">
+  <resultMap type="Travel2" id="TravelMap2">
+    <id     column="stopover"      property="stopover" />
+    <result column="photo1" property="photo1" />
+    <result column="photo2" property="photo2" />
+    <result column="photo3" property="photo3" />
+    <result column="photo4" property="photo4" />
+  </resultMap>
+
+  <update id="update" parameterType="Travel2">
+    UPDATE travel2 SET 
+      photo1=#{photo1},
+      photo2=#{photo2},
+      photo3=#{photo3},
+      photo4=#{photo4}
+    WHERE stopover=#{stopover}      
+  </update>
+  
+  <select id="get" parameterType="int" resultMap="TravelMap2">
+    SELECT photo1, photo2, photo3, photo4,
+    FROM travel2
+    WHERE stopover=#{value}
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
